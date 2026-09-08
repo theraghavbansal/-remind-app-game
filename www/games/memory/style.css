@@ -1,0 +1,77 @@
+body{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #0F172A;
+}
+
+.btn{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 20%;
+    border: 10px solid black;
+    margin: 0.75rem;
+}
+
+.btn-container{
+    background-color: #1E293B;
+    display: flex;
+    justify-content: center;
+}
+
+.red{
+    background-color: #ffcce1;
+}
+
+.yellow{
+    background-color: #f2f1ed;
+}
+
+.green{
+    background-color: #cde5d9;
+}
+
+.purple{
+
+    background-color: #f2ebcc;
+}
+.a{ background-color: #c2e6e7;
+
+}
+.b{background-color: #83ccd2;}
+.c{background-color: #f5e29e;}
+.d{ background-color: #c0f3ea;
+}
+.e{background-color: #beb9e2;}
+.f{background-color: #ffcaa4;}
+.g{background-color: #f0d1c0;}
+.h{background-color: #d6c180;}
+.i{background-color: #d695a5;}
+.j{background-color: #759fc9;}
+.k{background-color: #c37b69;}
+.l{background-color: #95664c;}
+.flash{
+    background-color: black;
+}
+.userflash{
+    background-color: green;
+}
+h1{
+    color: #38BDF8;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.head{
+    color: white;
+}
+.upper{
+    color: #38BDF8;
+}
+.watch{
+    color:#FACC15 ;
+}
+.over{
+    color: #EF4444;
+}
+.lower{
+    color: #CBD5D1;
+}
