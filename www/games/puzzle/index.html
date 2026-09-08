@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piecework — turn a photo into a jigsaw</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../hub-link.css">
+</head>
+<body>
+<a href="../../index.html" class="hub-home-link">← Home</a>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Piecework</div>
+    <h1>Turn any photo into a <em>jigsaw</em>.</h1>
+    <p class="lede">Upload a picture, pick a difficulty, and it's cut into real interlocking pieces you drag from the tray onto the board. Everything happens in your browser — nothing is uploaded anywhere.</p>
+  </header>
+
+  <div class="controls">
+    <button class="upload-btn">
+      Upload photo
+      <input type="file" id="fileInput" accept="image/*">
+    </button>
+
+    <div class="segmented" id="diffGroup">
+      <button data-rows="3" data-cols="3" class="active">3×3</button>
+      <button data-rows="4" data-cols="4">4×4</button>
+      <button data-rows="5" data-cols="5">5×5</button>
+      <button data-rows="6" data-cols="6">6×6</button>
+    </div>
+
+    <button class="ghost-btn" id="shuffleBtn" disabled>↻ Reshuffle</button>
+    <button class="ghost-btn" id="guideBtn" disabled>◐ Guide image</button>
+
+    <div class="stats">
+      <div>Moves <b id="movesStat">0</b></div>
+      <div>Time <b id="timeStat">0:00</b></div>
+      <div>Placed <b id="placedStat">0/0</b></div>
+    </div>
+  </div>
+
+  <div id="winBanner">
+    <span>🧩 Solved it — <b id="winSummary"></b></span>
+    <button class="ghost-btn" id="winShuffleBtn">Reshuffle & go again</button>
+  </div>
+
+  <div class="stage-scroll">
+    <div id="puzzleArea">
+      <div id="board">
+        <div class="pin-bl"></div><div class="pin-br"></div>
+      </div>
+      <div id="emptyState">
+        <div class="icon">🖼️</div>
+        <span>Upload a photo above to cut it into a jigsaw</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <b>How to play:</b> drag pieces from the tray onto the board. Drop a piece close to its correct spot and it snaps and locks into place. Use <b>Reshuffle</b> to re-cut the same photo with a fresh layout, or the <b>Guide image</b> toggle for a faint reference on the board.
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
