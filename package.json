@@ -1,0 +1,17 @@
+{
+  "name": "remind-app",
+  "version": "1.0.0",
+  "description": "R.E.M.I.N.D — a small collection of gentle browser games, packaged for Android with Capacitor",
+  "scripts": {
+    "sync": "npx cap sync android",
+    "open:android": "npx cap open android",
+    "add:android": "npx cap add android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2"
+  }
+}

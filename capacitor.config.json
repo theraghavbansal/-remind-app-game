@@ -1,0 +1,9 @@
+{
+  "appId": "com.remind.games",
+  "appName": "R.E.M.I.N.D",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  }
+}
