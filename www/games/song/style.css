@@ -1,0 +1,310 @@
+/* ============================================
+   R.E.M.I.N.D — tokens
+   Warm cream, brass/gramophone gold, sage calm,
+   soft coral (never harsh red), deep warm ink text.
+   ============================================ */
+:root{
+  --cream:        #FAF3E6;
+  --cream-deep:    #F1E6D2;
+  --ink:          #3C3226;
+  --ink-soft:      #6B5F4F;
+  --gold:         #C4863A;
+  --gold-deep:     #A56A28;
+  --sage:         #7C9473;
+  --sage-deep:     #5F7757;
+  --coral:        #D98B73;
+  --coral-deep:    #BE6E56;
+  --sky:          #8FAFC2;
+  --card:         #FFFCF6;
+  --shadow:       rgba(60, 50, 38, 0.14);
+  --radius-lg:     28px;
+  --radius-md:     18px;
+  --font-display:  'Fraunces', Georgia, serif;
+  --font-body:     'Nunito', 'Segoe UI', sans-serif;
+}
+
+*{ box-sizing: border-box; }
+
+html,body{
+  margin:0;
+  min-height:100vh;
+  background: radial-gradient(circle at 20% 0%, var(--cream-deep), var(--cream) 60%);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 20px; /* generous base size for readability */
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------- layout shell ---------- */
+.stage{
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 32px 20px 110px;
+}
+
+.screen{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  max-width: 640px;
+  width:100%;
+  animation: fade-in 0.6s ease;
+}
+.screen[data-active="true"]{ display:flex; }
+
+@keyframes fade-in{
+  from{ opacity:0; transform: translateY(10px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+/* ---------- welcome / end ---------- */
+.eyebrow{
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--gold-deep);
+  font-size: 0.85rem;
+  margin: 0 0 10px;
+}
+.title{
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.6rem, 9vw, 4.2rem);
+  letter-spacing: 0.06em;
+  margin: 0 0 18px;
+  color: var(--ink);
+}
+.title-small{ font-size: clamp(2rem, 7vw, 2.8rem); }
+.subtitle{
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 480px;
+  margin: 0 0 40px;
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  border:none;
+  cursor:pointer;
+  font-family: var(--font-body);
+  font-weight: 800;
+  border-radius: 999px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+}
+.btn:active{ transform: scale(0.97); }
+.btn:focus-visible{
+  outline: 4px solid var(--sky);
+  outline-offset: 3px;
+}
+.btn-big{
+  font-size: 1.35rem;
+  padding: 20px 48px;
+  box-shadow: 0 8px 0 var(--gold-deep), 0 14px 24px var(--shadow);
+}
+.btn-primary{
+  background: var(--gold);
+  color: #fff;
+}
+.btn-primary:hover{ background: var(--gold-deep); }
+.btn-secondary{
+  background: var(--sage);
+  color:#fff;
+  box-shadow: 0 8px 0 var(--sage-deep), 0 14px 24px var(--shadow);
+}
+.btn-secondary:hover{ background: var(--sage-deep); }
+
+/* ---------- question screen ---------- */
+.progress{
+  font-weight:700;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+  margin-bottom: 18px;
+  font-size: 1.05rem;
+}
+
+.prompt-card{
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  width:100%;
+  box-shadow: 0 16px 34px var(--shadow);
+  margin-bottom: 26px;
+}
+.prompt-kicker{
+  margin:0 0 8px;
+  font-weight: 700;
+  color: var(--gold-deep);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.prompt-text{
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 5vw, 2.1rem);
+  margin: 0 0 24px;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.btn-play{
+  background: linear-gradient(160deg, var(--gold), var(--gold-deep));
+  color:#fff;
+  font-size: 1.3rem;
+  padding: 18px 40px;
+  display:inline-flex;
+  align-items:center;
+  gap: 14px;
+  box-shadow: 0 8px 0 var(--gold-deep), 0 14px 24px var(--shadow);
+}
+.btn-play[data-playing="true"]{
+  background: linear-gradient(160deg, var(--sage), var(--sage-deep));
+  box-shadow: 0 8px 0 var(--sage-deep), 0 14px 24px var(--shadow);
+}
+.play-icon{
+  font-size: 1.4rem;
+  display:inline-block;
+}
+.play-icon.pulsing{ animation: pulse 1.1s ease-in-out infinite; }
+@keyframes pulse{
+  0%,100%{ transform: scale(1); }
+  50%{ transform: scale(1.25); }
+}
+
+/* ---------- spotify embed ----------
+   Kept in the page so the iFrame API can control real playback, but
+   visually hidden — the visible Spotify widget shows the track title
+   and singer, which would give away quiz answers. Audio still plays
+   fine from a hidden iframe; only the picture is hidden, not the sound. */
+.spotify-embed{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+/* ---------- options grid ---------- */
+.options{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width:100%;
+}
+@media (max-width: 480px){
+  .options{ grid-template-columns: 1fr; }
+}
+
+.option{
+  background: var(--card);
+  border: 3px solid var(--cream-deep);
+  border-radius: var(--radius-md);
+  padding: 20px 16px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink);
+  cursor:pointer;
+  box-shadow: 0 6px 16px var(--shadow);
+  transition: transform 0.15s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.option:hover{ transform: translateY(-3px); border-color: var(--gold); }
+.option:focus-visible{ outline: 4px solid var(--sky); outline-offset: 2px; }
+.option:active{ transform: scale(0.97); }
+
+.option[data-state="selected"]{
+  background: #FBF0DE;
+  border-color: var(--gold);
+  color: var(--gold-deep);
+  transform: translateY(-3px);
+}
+.option[data-state="correct"]{
+  background: #EEF4EA;
+  border-color: var(--sage);
+  color: var(--sage-deep);
+}
+.option[data-state="incorrect"]{
+  background: #F9EDE9;
+  border-color: var(--coral);
+  color: var(--coral-deep);
+}
+.option[disabled]{ cursor: default; }
+.option[data-state="dim"]{ opacity: 0.55; }
+
+/* ---------- submit button ---------- */
+#btn-submit{
+  background: var(--gold);
+  box-shadow: 0 8px 0 var(--gold-deep), 0 14px 24px var(--shadow);
+  margin-top: 22px;
+}
+#btn-submit:hover{ background: var(--gold-deep); }
+#btn-submit[disabled]{
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+#btn-submit[disabled]:active{ transform: none; }
+
+/* ---------- feedback ---------- */
+.feedback{
+  min-height: 1.6em;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin: 20px 0 6px;
+  color: var(--sage-deep);
+}
+.feedback[data-tone="gentle"]{ color: var(--coral-deep); }
+
+/* ---------- vinyl record decoration ---------- */
+.record-wrap{
+  position: fixed;
+  top: 26px;
+  right: 26px;
+  width: 92px;
+  height: 92px;
+  z-index: 5;
+}
+.record{
+  width:100%;
+  height:100%;
+  border-radius: 50%;
+  background:
+    repeating-radial-gradient(circle, #3C3226 0px, #3C3226 2px, #4a4032 3px, #4a4032 4px);
+  box-shadow: 0 10px 22px var(--shadow);
+  animation: spin 6s linear infinite paused;
+}
+.record[data-spin="true"]{ animation-play-state: running; }
+.record-label{
+  position:absolute;
+  top:50%; left:50%;
+  width: 34%; height:34%;
+  transform: translate(-50%,-50%);
+  border-radius:50%;
+  background: var(--gold);
+  border: 2px solid var(--gold-deep);
+}
+@keyframes spin{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(360deg); }
+}
+
+/* ---------- footer hint ---------- */
+.hint{
+  position: fixed;
+  left:0; right:0; bottom:0;
+  text-align:center;
+  padding: 16px 12px;
+  background: var(--cream-deep);
+  color: var(--ink-soft);
+  font-weight:700;
+  font-size: 1rem;
+  border-top: 2px solid rgba(196,134,58,0.25);
+}

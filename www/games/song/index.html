@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>R.E.M.I.N.D — Music Memory Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../hub-link.css">
+<!-- Spotify's official embed player + control API — no login/API key needed -->
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+</head>
+<body>
+
+  <a href="../../index.html" class="hub-home-link">← Home</a>
+
+  <!-- Gentle spinning record, present on every screen -->
+  <div class="record-wrap" aria-hidden="true">
+    <div class="record" id="record">
+      <div class="record-label"></div>
+    </div>
+    <div class="needle" id="needle"></div>
+  </div>
+
+  <main class="stage">
+
+    <!-- WELCOME SCREEN -->
+    <section class="screen" id="screen-welcome" data-active="true">
+      <p class="eyebrow">A gentle music memory game</p>
+      <h1 class="title">R.E.M.I.N.D</h1>
+      <p class="subtitle">Listen to old favourites. Take your time. Every answer is a good answer.</p>
+      <button class="btn btn-primary btn-big" id="btn-start">Start Listening</button>
+    </section>
+
+    <!-- QUESTION SCREEN -->
+    <section class="screen" id="screen-question">
+      <p class="progress" id="progress-label">Song 1 of 8</p>
+
+      <div class="prompt-card" id="prompt-card">
+        <p class="prompt-kicker" id="prompt-kicker">Listen, then choose the singer</p>
+        <h2 class="prompt-text" id="prompt-text">🎵 Tap play to listen 🎵</h2>
+
+        <button class="btn btn-play" id="btn-play" aria-label="Play song on Spotify">
+          <span class="play-icon" id="play-icon">▶</span>
+          <span id="play-label">Play Song</span>
+        </button>
+
+        <!-- Spotify's own small player. It plays the real track (a preview
+             clip unless the person is signed in to Spotify Premium in this
+             browser) and always shows the required Spotify branding. -->
+        <div id="spotify-embed" class="spotify-embed"></div>
+      </div>
+
+      <div class="options" id="options"></div>
+
+      <p class="feedback" id="feedback" aria-live="polite"></p>
+
+      <button class="btn btn-secondary btn-big" id="btn-submit" hidden disabled>Submit Answer</button>
+      <button class="btn btn-secondary btn-big" id="btn-next" hidden>Next Song →</button>
+    </section>
+
+    <!-- END SCREEN -->
+    <section class="screen" id="screen-end">
+      <p class="eyebrow">All done</p>
+      <h1 class="title title-small">Lovely listening! 🌼</h1>
+      <p class="subtitle" id="end-summary">You enjoyed 8 songs together.</p>
+      <button class="btn btn-primary btn-big" id="btn-restart">Listen Again</button>
+    </section>
+
+  </main>
+
+  <footer class="hint" id="hint-bar">
+    <span>💛 No rush — you can play any song again as many times as you like.</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
