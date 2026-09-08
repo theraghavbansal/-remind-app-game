@@ -1,0 +1,29 @@
+/* Shared "back to hub" pill — works over light or dark game backgrounds */
+.hub-home-link {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(30, 24, 16, 0.55);
+  color: #FAF3E6;
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.hub-home-link:hover {
+  background: rgba(30, 24, 16, 0.75);
+  transform: translateY(-1px);
+}
+.hub-home-link:active {
+  transform: scale(0.96);
+}

@@ -1,0 +1,30 @@
+{
+  "name": "R.E.M.I.N.D",
+  "short_name": "R.E.M.I.N.D",
+  "description": "A little collection of gentle games — sequence memory, photo jigsaw, and a music quiz.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FAF3E6",
+  "theme_color": "#C4863A",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

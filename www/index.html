@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>R.E.M.I.N.D</title>
+<link rel="manifest" href="/manifest.json">  <meta name="theme-color" content="#C4863A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="record-wrap" aria-hidden="true">
+    <div class="record">
+      <div class="record-label"></div>
+    </div>
+  </div>
+
+  <main class="shelf">
+    <header class="intro">
+      <p class="eyebrow">A little collection of gentle games</p>
+      <h1 class="title">R.E.M.I.N.D</h1>
+      <p class="subtitle">Three quiet ways to spend a few minutes. Pick whichever one calls to you today.</p>
+    </header>
+
+    <div class="sleeves">
+
+      <a class="sleeve" href="games/memory/index.html" style="--sleeve-bg:#0F172A;--sleeve-accent:#38BDF8;">
+        <div class="sleeve-art">
+          <span class="sleeve-dot" style="background:#ffcce1"></span>
+          <span class="sleeve-dot" style="background:#f2f1ed"></span>
+          <span class="sleeve-dot" style="background:#cde5d9"></span>
+          <span class="sleeve-dot" style="background:#f2ebcc"></span>
+        </div>
+        <div class="sleeve-body">
+          <p class="sleeve-kicker">Sequence &amp; recall</p>
+          <h2 class="sleeve-title">R.E.M.I.N.D Memory</h2>
+          <p class="sleeve-desc">Watch the pattern light up, then repeat it back. See how many rounds you can hold onto.</p>
+          <span class="sleeve-cta">Play →</span>
+        </div>
+      </a>
+
+      <a class="sleeve" href="games/puzzle/index.html" style="--sleeve-bg:#161d27;--sleeve-accent:#E2A33C;">
+        <div class="sleeve-art">
+          <span class="sleeve-piece"></span>
+        </div>
+        <div class="sleeve-body">
+          <p class="sleeve-kicker">Photo jigsaw</p>
+          <h2 class="sleeve-title">Piecework</h2>
+          <p class="sleeve-desc">Turn any photo into a real interlocking jigsaw and piece it back together, right in the browser.</p>
+          <span class="sleeve-cta">Play →</span>
+        </div>
+      </a>
+
+      <a class="sleeve" href="games/song/index.html" style="--sleeve-bg:#FAF3E6;--sleeve-accent:#C4863A;">
+        <div class="sleeve-art sleeve-art--light">
+          <span class="sleeve-note">♪</span>
+        </div>
+        <div class="sleeve-body sleeve-body--light">
+          <p class="sleeve-kicker">Listen &amp; guess</p>
+          <h2 class="sleeve-title">R.E.M.I.N.D Music</h2>
+          <p class="sleeve-desc">Old favourites play through Spotify. Guess the singer or the song — no rush, no wrong answers.</p>
+          <span class="sleeve-cta">Play →</span>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer class="hub-footer">
+    <span>Three small games, one home. Come back anytime.</span>
+  </footer>
+   <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
+</body>
+</html>
